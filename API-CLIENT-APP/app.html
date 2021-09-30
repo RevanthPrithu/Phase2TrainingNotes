@@ -1,0 +1,27 @@
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var url="http://localhost:3744/api/TblDepartments";
+            $("#b2").click(function(){
+                $.getJSON(url, function (data) {            
+                            // $.each(data,function(key,val){
+                            //     var st =JSON.stringify( val );
+                            // $('<li/>', { text: st }).appendTo($("#departments"));
+
+                            var id=Number($("#id").val());
+                            $.getJSON(`${url}/${id}`,function(data){
+                                $("#dname").val(data.dname);
+                            });
+                    });
+                });
+        });
+    
+</script>
+</head>
+<body>
+<h1>jQuery App Consume API</h1>
+<button id="b1">Show departments</button>    <hr/>
+<ol id="departments" />
+ID:<input type="number" id="id"/>
+<button id="b2"> Get Department</button> <br/>
+Ename:<input type="text" id="dname"/> <br/>

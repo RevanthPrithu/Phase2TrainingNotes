@@ -1,0 +1,62 @@
+get http://localhost:3744/api/Employees
+###
+get http://localhost:3744/api/Employees/1001
+###
+POST http://localhost:3744/api/Employees
+Content-Type:application/json
+
+{
+    "id":1009,
+  "ename": "revanthGOWDAM",
+  "job": "dev",
+  "salary": 20000,
+  "deptid": 30,
+  "dept": null
+}
+###
+PUT http://localhost:3744/api/Employees/1001
+Content-Type:application/json
+
+{
+    "id":1001,
+  "ename": "revanthmprithu",
+  "job": "dev",
+  "salary": 20000,
+  "deptid": 30,
+  "dept": null
+}
+####
+DELETE http://localhost:3744/api/Employees/1007
+
+#####
+get http://localhost:3744/api/TblDepartments
+####
+PUT http://localhost:3744/api/TblDepartments/30
+Content-Type:application/json
+
+{
+  "id": 30,
+  "dname": "Development",
+  "location": "blore",
+  "tblEmployees": []
+}
+####
+POST  http://localhost:3744/api/TblDepartments
+Content-Type:application/json
+
+{
+  "id": 60,
+  "dname": "Hardware",
+  "location": "blore",
+  "tblEmployees": []
+}
+####
+POST http://localhost:9001
+Content-Type: application/json
+
+{"id":1004,"pname":"Ashoku","gender":"Male","age":20}
+######
+POST http://localhost:9003
+Content-Type: application/json
+
+{"_id":1005,"ename":"RevuGowda","course":"Mvc","fee":2000}

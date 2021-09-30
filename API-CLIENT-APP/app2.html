@@ -1,0 +1,114 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var url="http://localhost:3744/api/Employees";
+            $("#b2").click(function(){
+                var id =Number( $("#id").val());
+                $.getJSON(`${url}/${id}`, function (data) {                                        
+                       $("#ename").val(data.ename);
+                       $("#job").val(data.job);
+                       $("#salary").val(data.salary);
+                       $("#deptid").val(data.deptid);
+                    });
+                });
+                $("#b1").click(function(){ //adding employee
+                var emp ={
+                    "id": Number( $("#id").val()),
+                    "ename":$("#ename").val(),
+                    "job":$("#job").val(),
+                    "salary":Number($("#salary").val()),
+                    "deptid":Number($("#deptid").val()),
+                };
+                alert(JSON.stringify(emp));
+                $.ajax({
+                    url:url,
+                    type:"POST",
+                    data:JSON.stringify(emp),
+                    contentType:"application/json;charset=utf-8",
+                    success:function(data){
+                        alert("EMployee Added successfully");
+                    },
+                    error: function(data){
+                        alert("Adding failure");
+                    }
+                });
+        });
+
+            $("#b3").click(function(){
+                var id =Number( $("#id").val());
+                var emp = { 
+                            "id":id,
+                            "ename":$("#ename").val(),
+                            "job":$("#job").val(),
+                            "salary": Number($("#salary").val()),
+                            "deptid": Number($("#deptid").val()),
+                        };
+                    alert(JSON.stringify(emp));
+                    $.ajax({ 
+                url: `${url}/${id}`, 
+                type: 'PUT', 
+                data: JSON.stringify(emp), 
+                contentType: "application/json;charset=utf-8", 
+                success: function (data) { 
+                    alert('Employee row edited Successfully'); 
+                }, 
+                error: function(error) {
+                      alert(error.message);
+                }
+                });
+            });
+
+            $("#b4").click(function(){
+                var id =Number( $("#id").val());
+                    $.ajax({ 
+                url: `${url}/${id}`, 
+                type: 'DELETE', 
+                success: function (data) { 
+                    alert('Employee row deleted Successfully'); 
+                }, 
+                error: function(error) {
+                      alert(error.message);
+                }
+                });
+            });
+
+    });
+</script>
+</head>
+<body >
+    <div class="container">
+<h1>jQuery: Web API CRUD Operations</h1>
+<table class="table table-bordered table-hover">
+<tbody>
+<tr>
+    <td>ID:</td>
+    <td><input type="number" id="id" />  </td>
+    <td><button id="b1">Create/Add Employee</button></td>
+</tr> 
+<tr>
+    <td>EName: </td>
+    <td><input type="text" id="ename" /> </td>
+    <td><button id="b2">Retrieve Employee</button></td>
+</tr>
+<tr>
+    <td>Job: </td>
+    <td><input type="text" id="job" /></td>
+    <td><button id="b3">Update Employee</button></td>
+</tr>
+<tr>
+    <td>Salary:</td>
+    <td> <input type="number" id="salary" /> </td>
+    <td><button id="b4">Delete  Employee</button></td>
+</tr>
+<tr>
+    <td>Deptid: </td>
+    <td><input type="number" id="deptid" /> </td>
+    <td><button id="b1">Clear All</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+

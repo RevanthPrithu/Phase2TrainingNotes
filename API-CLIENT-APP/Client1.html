@@ -1,0 +1,75 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+<script>
+    // jQuery(document).ready(function(){
+    //    var span1=$("#span1");
+    //    span1.text("hi span");
+    // });
+
+   // $(document).ready(function(){
+        // $("#b1").click(function(){
+        //     $("#span1").text("hello");
+        // });
+        // $("#b2").click(function(){
+        //     $("#span1").text("");
+        // });
+        // $("#b1").click(function(){
+        //     document.bgColor="GREEN";
+        //  });
+        //  $("#b2").click(function(){
+        //     document.bgColor="RED";
+        //  });
+        //  $("#b3").click(function(){
+        //     document.bgColor="BLUE";
+        //  });
+      
+    //})
+
+    // $ (document).ready(function(){
+    // $("#b1,#b2,#b3").click(function(){
+    //     document.bgColor=$(this).val();
+    // });
+    //  });
+
+    //  $ (document).ready(function(){
+    // $("#b2,#b3").click(function(){
+    //    if($(this).val()=="date")
+    //    $("#t1").val(new Date().toLocaleDateString());
+    //    else if($(this).val()=="time")
+    //    $("#t1").val(new Date().toLocaleTimeString());
+    // });
+    //  });
+
+
+    $ (document).ready(function(){
+    $("#b1").click(function(){
+       var url="http://localhost:3744/api/TblDepartments";
+       $.getJSON(url,function(data){
+      $
+    })
+    });
+    });
+
+</script>
+
+<h1>Jquery demo</h1>
+
+<!-- <span id="span1"> this is span tag</span> -->
+<hr/>
+<!-- <button id="b1">Say Hello</button>
+<button id="b2">clear all</button> -->
+<!-- <button id="b1">GREEN</button>
+<button id="b2">RED</button>
+<button id="b3">BLUE</button> -->
+
+<!-- <button id="b1" value="GREEN">GREEN</button>
+<button id="b2" value="RED">RED</button>
+<button id="b3" value="BLUE">BLUE</button> -->
+
+<!-- <button id="b2" value="date">date</button>
+<button id="b3" value="time">time</button>
+<hr/>
+<input type="text" id="t1"/> -->
+
+<button id="b1"> Get Departments </button>
+<hr/>
